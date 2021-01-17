@@ -73,7 +73,7 @@ foreach ($db->resultados() as $post) {
 echo '<hr> Total Resultados: '.$db->totalResultados().'<br />';
 //echo '<hr> Último id: '.$db->ultimoIdInserido();
 */
-var_dump($db);
+//var_dump($db);
 ?>
 <!DOCTYPE html>
 <!--
