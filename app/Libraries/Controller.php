@@ -12,6 +12,7 @@ class Controller
     
     public function view($view, $dados = [])
     {
+        // Obs: talves compense usar o header('Location: caminho_pagina') para chamar a pagina
         $arquivo = ('../app/Views/'.$view.'.php');
         if (file_exists($arquivo)) :
             require_once $arquivo;
