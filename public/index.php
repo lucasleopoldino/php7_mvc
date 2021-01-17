@@ -1,7 +1,12 @@
 <?php
 include_once '../app/configuracao.php'; 
 include_once '../app/Libraries/Rota.php'; 
-include_once '../app/Libraries/Controller.php'; 
+include_once '../app/Libraries/Controller.php';
+include_once '../app/Libraries/Database.php';
+$db = new Database();
+//$pdo = $conexao->Conectar();
+
+var_dump($db);
 ?>
 <!DOCTYPE html>
 <!--
