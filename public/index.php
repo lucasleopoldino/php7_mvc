@@ -1,8 +1,9 @@
 <?php
 include_once '../app/configuracao.php'; 
-include_once '../app/Libraries/Rota.php'; 
-include_once '../app/Libraries/Controller.php';
-include_once '../app/Libraries/Database.php';
+include_once '../app/autoload.php';
+//include_once '../app/Libraries/Rota.php'; 
+//include_once '../app/Libraries/Controller.php';
+//include_once '../app/Libraries/Database.php';
 $db = new Database();
 
 /*
@@ -56,6 +57,7 @@ $db->bind(':id', $id);
 $db->executa();
 */
 
+/* lendo resgitros
 $sql = "SELECT * FROM posts ORDER BY id DESC";
 $db->query($sql);
 //$db->resultado();
@@ -66,9 +68,11 @@ foreach ($db->resultados() as $post) {
     echo $post->id.' - '.$post->titulo.'<br />';
 }
 
+
+
 echo '<hr> Total Resultados: '.$db->totalResultados().'<br />';
 //echo '<hr> Último id: '.$db->ultimoIdInserido();
-
+*/
 var_dump($db);
 ?>
 <!DOCTYPE html>
