@@ -1,6 +1,6 @@
 <?php
 include_once '../app/Libraries/Rota.php'; 
- 
+include_once '../app/Libraries/Controller.php'; 
 ?>
 <!DOCTYPE html>
 <!--
