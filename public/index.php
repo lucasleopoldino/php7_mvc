@@ -4,7 +4,22 @@ include_once '../app/Libraries/Rota.php';
 include_once '../app/Libraries/Controller.php';
 include_once '../app/Libraries/Database.php';
 $db = new Database();
-//$pdo = $conexao->Conectar();
+
+// simulando inserção de dados
+$usuario_id = 10;
+$titulo = 'Titulo do post';
+$texto = 'Texto do post';
+
+// insere no banco de dados
+$db->query("INSERT INTO posts(usuario_id, titulo, texto) VALUES(:usuario_id, :titulo, :texto)");
+$db->bind(':usuario_id', $usuario_id, PDO::PARAM_INT);
+$db->bind(':titulo', $titulo, PDO::PARAM_STR);
+$db->bind(':texto', $texto, PDO::PARAM_STR);
+
+$db->executa();
+
+echo '<hr> Total Resultados: '.$db->totalResultados();
+echo '<hr> Último id: '.$db->ultimoIdInserido();
 
 var_dump($db);
 ?>

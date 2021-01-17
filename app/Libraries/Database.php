@@ -103,7 +103,7 @@ class Database
     
     public function ultimoIdInserido()
     {
-        return $this->stmt->lastInsertId();
+        return $this->dbh->lastInsertId();
     }
     
     
