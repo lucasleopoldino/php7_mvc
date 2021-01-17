@@ -46,8 +46,7 @@ $db->executa();
 */
 
 /*
-    deletando dados
- *  */
+deletando dados
 $id = 1;
 $sql = "DELETE FROM posts WHERE id = :id";
 
@@ -55,8 +54,19 @@ $db->query($sql);
 $db->bind(':id', $id);
 
 $db->executa();
+*/
 
-echo '<hr> Total Resultados: '.$db->totalResultados();
+$sql = "SELECT * FROM posts ORDER BY id DESC";
+$db->query($sql);
+//$db->resultado();
+
+//echo $db->resultado()->titulo;
+
+foreach ($db->resultados() as $post) {
+    echo $post->id.' - '.$post->titulo.'<br />';
+}
+
+echo '<hr> Total Resultados: '.$db->totalResultados().'<br />';
 //echo '<hr> Último id: '.$db->ultimoIdInserido();
 
 var_dump($db);
