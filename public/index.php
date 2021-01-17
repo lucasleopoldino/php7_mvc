@@ -1,4 +1,5 @@
 <?php
+include_once '../app/configuracao.php'; 
 include_once '../app/Libraries/Rota.php'; 
 include_once '../app/Libraries/Controller.php'; 
 ?>
@@ -12,13 +13,13 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Curso de PHP7 e MVC</title>
+        <title><?= APP_NOME ?></title>
     </head>
     <body>
         
         <?php
-            $rotas = new Rota();
-
+        $rotas = new Rota();
+            
             
         ?>
         

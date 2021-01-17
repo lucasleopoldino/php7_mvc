@@ -29,6 +29,6 @@ class Paginas extends Controller
             'tituloPagina' => 'Página Sobre Nós'
         ];
         
-        $this->view('paginas/home', $dados);
+        $this->view('paginas/sobre', $dados);
     }
 }

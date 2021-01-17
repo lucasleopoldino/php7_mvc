@@ -11,6 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <h1><?= $dados['tituloPagina'] ?></h1>
-
+        <?= APP.'<br />' ?>
+        
     </body>
 </html>
