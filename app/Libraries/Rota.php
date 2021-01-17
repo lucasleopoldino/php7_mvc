@@ -6,6 +6,7 @@ class Rota
     
     private $controlador = 'Paginas';
     private $metodo = 'index';
+    private $parametros = [];
     
     public function __construct()
     {
@@ -29,6 +30,11 @@ class Rota
                 unset($url[1]);
             endif;
         endif;
+        
+        // verifica se na url existe parametros, se existir retorna 
+        // os valores para o parametro, caso não exista retorna um aray vazio
+        $this->parametros = $url ? array_values($url) : [];
+        call_user_func_array([$this->controlador, $this->metodo], $this->parametros);
 
         var_dump($this);
     }
