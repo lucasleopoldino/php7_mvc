@@ -21,6 +21,7 @@ $db->bind(':texto', $texto, PDO::PARAM_STR);
 // configura o timezone do servidor
 date_default_timezone_set('America/Sao_Paulo');
 
+/*
 // testando update
 $id = 1;
 $usuario_id = 5;
@@ -40,6 +41,18 @@ $db->bind(':usuario_id', $usuario_id);
 $db->bind(':titulo', $titulo);
 $db->bind(':texto', $texto);
 $db->bind(':criadoEm', $criadoEm);
+
+$db->executa();
+*/
+
+/*
+    deletando dados
+ *  */
+$id = 1;
+$sql = "DELETE FROM posts WHERE id = :id";
+
+$db->query($sql);
+$db->bind(':id', $id);
 
 $db->executa();
 
