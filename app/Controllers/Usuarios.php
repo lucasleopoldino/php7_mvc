@@ -15,32 +15,39 @@ class Usuarios extends Controller
             ];
         
             if (in_array("", $formulario)) :
-           
+            
                 // verifica se os campos foram preenchidos
                 if (empty($formulario['nome'])) :
-                    $dados['nome_erro'] = 'Preencha o campo nome <br />';
+                    $dados['nome_erro'] = 'Preencha o campo nome';
                 endif;
 
                 if (empty($formulario['email'])) :
-                    $dados['email_erro'] = 'Preencha o campo e-mail <br />';
+                    $dados['email_erro'] = 'Preencha o campo e-mail';
                 endif;
 
                 if (empty($formulario['senha'])) :
-                    $dados['senha_erro'] = 'Preencha o campo senha <br />';
+                    $dados['senha_erro'] = 'Preencha o campo senha';
                 endif;
 
                 if (empty($formulario['confirmar_senha'])) :
-                    $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha <br />';
+                    $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha';
                 endif;
 
             else:
+                // depois procurar aprender expressões regulares pra melhorar o filtro
+                if (Checa::checarNome($formulario['nome'])) :
+                    $dados['nome_erro'] = 'O nome informado é invalido';
+                elseif (Checa::checarEmail($formulario['email'])) :
+                    $dados['email_erro'] = 'O e-mail informado é invalido';
+                endif;
+                
                 if(strlen($formulario['senha']) < 6) :
                     $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
                 
                 elseif($formulario['confirmar_senha'] != $formulario['senha']) :
                     $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
                 else:
-                    echo 'Pode cadastrar os dados <br />';
+                    echo 'Pode cadastrar os dados';
                 endif;
                 
             endif;

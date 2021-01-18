@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
-                    <input type="email" name="email" class="form-control <?= isset($dados['email_erro']) ? 'is-invalid' : '' ?>" id="email" value="<?= $dados['email'] ?>"  >
+                    <input type="text" name="email" class="form-control <?= isset($dados['email_erro']) ? 'is-invalid' : '' ?>" id="email" value="<?= $dados['email'] ?>"  >
                     <div class="invalid-feedback">
                         <?= isset($dados['email_erro']) ? $dados['email_erro'] : '' ?>
                     </div>
