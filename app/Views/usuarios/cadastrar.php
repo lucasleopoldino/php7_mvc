@@ -4,22 +4,22 @@
             <h2>Cadastre-se</h2>
             <small>Preencha o formulario abaixo para fazer seu cadastro</small>
             
-            <form name="cadastrar" method="POST">
+            <form name="cadastrar" method="POST" action="<?= URL ?>usuarios/cadastrar">
                 <div class="form-group">
                     <label for="nome">Nome: <sup class="text-danger">*</sup></label>
-                    <input type="text" name="nome" class="form-control" id="nome" required >
+                    <input type="text" name="nome" class="form-control" id="nome" value="<?= $dados['nome'] ?>" required >
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
-                    <input type="email" name="email" class="form-control" id="email" required >
+                    <input type="email" name="email" class="form-control" id="email" value="<?= $dados['email'] ?>" required >
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha: <sup class="text-danger">*</sup></label>
-                    <input type="password" name="senha" class="form-control" id="senha" required >
+                    <input type="password" name="senha" class="form-control" id="senha" value="<?= $dados['senha'] ?>" required >
                 </div>
                 <div class="form-group">
                     <label for="confirmar_senha">Confirme a Senha: <sup class="text-danger">*</sup></label>
-                    <input type="password" name="confirmar_senha" class="form-control" id="confirmar_senha" required >
+                    <input type="password" name="confirmar_senha" class="form-control" id="confirmar_senha" value="<?= $dados['confirmar_senha'] ?>" required >
                 </div>
                 
                 <div class="row">
