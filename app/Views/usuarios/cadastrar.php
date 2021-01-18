@@ -7,19 +7,31 @@
             <form name="cadastrar" method="POST" action="<?= URL ?>usuarios/cadastrar">
                 <div class="form-group">
                     <label for="nome">Nome: <sup class="text-danger">*</sup></label>
-                    <input type="text" name="nome" class="form-control" id="nome" value="<?= $dados['nome'] ?>" required >
+                    <input type="text" name="nome" class="form-control <?= isset($dados['nome_erro']) ? 'is-invalid' : '' ?>" id="nome" value="<?= $dados['nome'] ?>" >
+                    <div class="invalid-feedback">
+                        <?= isset($dados['nome_erro']) ? $dados['nome_erro'] : '' ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
-                    <input type="email" name="email" class="form-control" id="email" value="<?= $dados['email'] ?>" required >
+                    <input type="email" name="email" class="form-control <?= isset($dados['email_erro']) ? 'is-invalid' : '' ?>" id="email" value="<?= $dados['email'] ?>"  >
+                    <div class="invalid-feedback">
+                        <?= isset($dados['email_erro']) ? $dados['email_erro'] : '' ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha: <sup class="text-danger">*</sup></label>
-                    <input type="password" name="senha" class="form-control" id="senha" value="<?= $dados['senha'] ?>" required >
+                    <input type="password" name="senha" class="form-control <?= isset($dados['senha_erro']) ? 'is-invalid' : '' ?>" id="senha" value="<?= $dados['senha'] ?>"  >
+                    <div class="invalid-feedback">
+                        <?= isset($dados['senha_erro']) ? $dados['senha_erro'] : '' ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="confirmar_senha">Confirme a Senha: <sup class="text-danger">*</sup></label>
-                    <input type="password" name="confirmar_senha" class="form-control" id="confirmar_senha" value="<?= $dados['confirmar_senha'] ?>" required >
+                    <input type="password" name="confirmar_senha" class="form-control <?= isset($dados['confirmar_senha_erro']) ? 'is-invalid' : '' ?>" id="confirmar_senha" value="<?= $dados['confirmar_senha'] ?>"  >
+                    <div class="invalid-feedback">
+                        <?= isset($dados['confirmar_senha_erro']) ? $dados['confirmar_senha_erro'] : '' ?>
+                    </div>
                 </div>
                 
                 <div class="row">

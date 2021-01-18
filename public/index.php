@@ -96,6 +96,8 @@ and open the template in the editor.
             include_once APP."/Views/topo.php";
             $rotas = new Rota();
             include_once APP."/Views/rodape.php";
+
+            
             
         ?>
         
