@@ -14,33 +14,37 @@ class Usuarios extends Controller
                 'confirmar_senha' => trim($formulario['confirmar_senha'])
             ];
         
-        
-            // verifica se os campos foram preenchidos
-            if (empty($formulario['nome'])) :
-                $dados['nome_erro'] = 'Preencha o campo nome <br />';
-            endif;
+            if (in_array("", $formulario)) :
+           
+                // verifica se os campos foram preenchidos
+                if (empty($formulario['nome'])) :
+                    $dados['nome_erro'] = 'Preencha o campo nome <br />';
+                endif;
 
-            if (empty($formulario['email'])) :
-                $dados['email_erro'] = 'Preencha o campo e-mail <br />';
-            endif;
+                if (empty($formulario['email'])) :
+                    $dados['email_erro'] = 'Preencha o campo e-mail <br />';
+                endif;
 
-            if (empty($formulario['senha'])) :
-                $dados['senha_erro'] = 'Preencha o campo senha <br />';
-            elseif(strlen($formulario['senha']) < 6) :
-                $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
-            endif;
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = 'Preencha o campo senha <br />';
+                endif;
 
-            if (empty($formulario['confirmar_senha'])) :
-                $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha <br />';
-            elseif($formulario['confirmar_senha'] != $formulario['senha']) :
-                $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
+                if (empty($formulario['confirmar_senha'])) :
+                    $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha <br />';
+                endif;
+
+            else:
+                if(strlen($formulario['senha']) < 6) :
+                    $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
+                
+                elseif($formulario['confirmar_senha'] != $formulario['senha']) :
+                    $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
+                else:
+                    echo 'Pode cadastrar os dados <br />';
+                endif;
+                
             endif;
             
-            // verifica se no array não tem string vazia
-            if (!in_array("", $formulario)) :
-                echo 'Pode realizar o cadastro';
-            endif;
-        
         else:
             $dados = [
                 'nome' => '',
