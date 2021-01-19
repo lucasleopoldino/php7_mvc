@@ -28,7 +28,7 @@ class Usuario
     {
         $this->db->query("SELECT email FROM usuarios WHERE email = :email");
         $this->db->bind(':email', $email);
-        if ($this->db->executa()) :
+        if ($this->db->resultado()) :
             return true;
         endif;
         return false;

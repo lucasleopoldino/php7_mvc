@@ -52,17 +52,16 @@ class Usuarios extends Controller
                 elseif ($formulario['confirmar_senha'] != $formulario['senha']) :
                     $dados['confirmar_senha_erro'] = 'As senhas são diferentes';                    
                 else:
-                    
-                    
-                    if ($this->usuarioModel->checarSeEmailJaCadastrado($formulario['email'])) :
-                        $dados['email_erro'] = 'O e-mail informado ja esta cadastrado';
-                    else:
-                        $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
+
+                    if (!$this->usuarioModel->checarSeEmailJaCadastrado($formulario['email'])) :
                         if ($this->usuarioModel->armazenar($dados)) :
+                            $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                             echo 'Cadastro realizado com sucesso <hr>';
                         else:
                             die("Erro ao armazenar usuario no banco de dados");
                         endif;
+                    else:
+                        $dados['email_erro'] = 'O e-mail informado ja esta cadastrado';
                     endif;
                     
 
