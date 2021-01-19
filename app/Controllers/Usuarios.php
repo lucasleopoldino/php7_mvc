@@ -3,6 +3,11 @@
 class Usuarios extends Controller
 {
     
+    public function __construct()
+    {
+        $this->usuarioModel = $this->model('Usuario');
+    }
+    
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -41,15 +46,26 @@ class Usuarios extends Controller
                     $dados['email_erro'] = 'O e-mail informado é invalido';
                 endif;
                 
-                if(strlen($formulario['senha']) < 6) :
+                if (strlen($formulario['senha']) < 6) :
                     $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
                 
-                elseif($formulario['confirmar_senha'] != $formulario['senha']) :
-                    $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
+                elseif ($formulario['confirmar_senha'] != $formulario['senha']) :
+                    $dados['confirmar_senha_erro'] = 'As senhas são diferentes';                    
                 else:
-                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                     
-                    echo 'Pode cadastrar os dados <br />';
+                    
+                    if ($this->usuarioModel->checarSeEmailJaCadastrado($formulario['email'])) :
+                        $dados['email_erro'] = 'O e-mail informado ja esta cadastrado';
+                    else:
+                        $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
+                        if ($this->usuarioModel->armazenar($dados)) :
+                            echo 'Cadastro realizado com sucesso <hr>';
+                        else:
+                            die("Erro ao armazenar usuario no banco de dados");
+                        endif;
+                    endif;
+                    
+
                 endif;
                 
             endif;
