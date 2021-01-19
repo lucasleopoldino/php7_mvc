@@ -24,8 +24,8 @@
                 <span class="navbar-text">
                     <a class="btn btn-info" href="<?= URL ?>usuarios/cadastrar" data-tooltip="tooltip"
                        title="Não tem uma conta? Cadastre-se">Cadastre-se</a>
-                    <a class="btn btn-info" href="#" data-tooltip="tooltip"
-                       title="Não tem uma conta? faça login">Entrar</a>
+                    <a class="btn btn-info" href="<?= URL ?>usuarios/login" data-tooltip="tooltip"
+                       title="Voçe tem uma conta? faça login">Entrar</a>
                 </span>
             </div>
         </nav>

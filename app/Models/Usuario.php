@@ -33,4 +33,25 @@ class Usuario
         endif;
         return false;
     }
+    
+        public function checarSenha($senha)
+    {
+        $this->db->query("SELECT email FROM usuarios WHERE senha = :senha");
+        $this->db->bind(':senha', $senha);
+        if ($this->db->resultado()) :
+            return true;
+        endif;
+        return false;
+    }
+    
+    public function verificarUsuario($email, $senha)
+    {
+        if ($this->checarSeEmailJaCadastrado($email)) :
+            if ($this->checarSenha($senha)) :
+                return true;
+            endif;
+            return false;
+        endif;
+        return false;
+    }
 }

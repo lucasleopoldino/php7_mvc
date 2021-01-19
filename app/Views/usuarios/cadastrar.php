@@ -1,10 +1,13 @@
 <div class="col-xl-4 col-md-6 mx-auto p-5">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body bg-secondary text-white">
             <h2>Cadastre-se</h2>
-            <small>Preencha o formulario abaixo para fazer seu cadastro</small>
-            
-            <form name="cadastrar" method="POST" action="<?= URL ?>usuarios/cadastrar">
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <small>Preencha o formulario abaixo para fazer seu cadastro</small>
+            </p>
+            <form name="cadastrar" method="POST" action="<?= URL ?>usuarios/cadastrar" class="mt-4">
                 <div class="form-group">
                     <label for="nome">Nome: <sup class="text-danger">*</sup></label>
                     <input type="text" name="nome" class="form-control <?= isset($dados['nome_erro']) ? 'is-invalid' : '' ?>" id="nome" value="<?= $dados['nome'] ?>" >
@@ -35,11 +38,11 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <input type="submit" value="Cadastrar" class="btn btn-info btn-block">
                     </div>
-                    <div class="col">
-                        <a href="#">Voçe tem uma conta? faça login</a>
+                    <div class="col-md-6">
+                        <a href="<?= URL ?>usuarios/login">Voçe tem uma conta? faça login</a>
                     </div>
                 </div>
             </form>
